@@ -1,0 +1,81 @@
+.app-container {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 30px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.switch {
+  margin-top: 10px;
+}
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #0066cc;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #004999;
+}
+
+.preview {
+  background: white;
+  width: 794px;
+  height: 1123px;
+  margin: auto;
+  padding: 80px 60px 60px; /* Top padding pushes content down slightly */
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Times New Roman", serif;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+
+.logo-preview {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.team-member {
+  display: flex;
+  gap: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.download-btn {
+  background-color: #28a745;
+}
+
+.download-btn:hover {
+  background-color: #1f7c32;
+}
