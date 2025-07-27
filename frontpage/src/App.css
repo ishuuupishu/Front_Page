@@ -46,7 +46,7 @@ button:hover {
   width: 794px;
   height: 1123px;
   margin: auto;
-  padding: 80px 60px 60px; /* Top padding pushes content down slightly */
+  padding: 80px 60px 60px; 
   border: 1px solid #ddd;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
