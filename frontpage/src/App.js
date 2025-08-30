@@ -45,32 +45,63 @@ function App() {
     });
   };
 
-  const downloadPDF = () => {
-    const input = contentRef.current;
-    html2canvas(input, { scale: 2 }).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const pageWidth = 210;
-      const pageHeight = 297;
-      const imgWidth = pageWidth;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+const downloadPDF = () => {
+  const input = contentRef.current;
+  html2canvas(input, { scale: 2 }).then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pageWidth = 210;
+    const pageHeight = 297;
 
-      let heightLeft = imgHeight;
-      let position = 0;
+    // Fit image into one A4 page
+    const imgWidth = pageWidth;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
+    // If image is taller than page, scale it down
+    const finalHeight = imgHeight > pageHeight ? pageHeight : imgHeight;
 
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
+    pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, finalHeight);
+    pdf.save('FrontPage.pdf');
+  });
+};
+const printPDF = () => {
+  const input = contentRef.current;
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Print Preview</title>
+        <style>
+          @page {
+            size: A4;
+            margin: 30mm 20mm 30mm 20mm;
+          }
+          body {
+            font-family: "Times New Roman", serif;
+            text-align: center;
+            line-height: 1.8;
+          }
+          .logo-preview {
+            width: 220px;
+            margin-bottom: 40px;
+          }
+          h1, h2, h3, h4, p {
+            margin: 12px 0;
+          }
+          ul { list-style: none; padding: 0; }
+          .section { margin: 25px 0; }
+        </style>
+      </head>
+      <body>
+        ${input.innerHTML}
+      </body>
+    </html>
+  `);
+  printWindow.document.close();
+  printWindow.focus();
+  printWindow.print();
+};
 
-      pdf.save('FrontPage.pdf');
-    });
-  };
 
   return (
     <div className="app-container">
@@ -93,6 +124,8 @@ function App() {
         <input type="text" name="universityName" placeholder="University Name" onChange={handleInputChange} />
         <input type="text" name="courseTitle" placeholder="Course Title" onChange={handleInputChange} />
         <input type="text" name="courseCode" placeholder="Course Code" onChange={handleInputChange} />
+
+
 
         {isLabReport ? (
           <>
@@ -131,6 +164,8 @@ function App() {
         <input type="date" name="submissionDate" onChange={handleInputChange} />
 
         <button className="download-btn" onClick={downloadPDF}>📥 Download as PDF</button>
+
+        <button className="print-btn" onClick={printPDF}>🖨️ Print Page</button>
       </div>
 
       <div className="preview" ref={contentRef}>
@@ -164,6 +199,8 @@ function App() {
           </>
         )}
         <p>Date of Submission: {formData.submissionDate}</p>
+        
+
       </div>
     </div>
   );
