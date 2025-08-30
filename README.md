@@ -1,40 +1,47 @@
-# 📄 Front Page Generator (Lab Report & Assignment)
+# 📝 Front Page Generator (Lab Report & Assignment)
 
-A simple and dynamic React-based application that allows students to **generate professional-looking lab report or assignment front pages** in A4 PDF format. Users can upload logos, input academic details, and download the final design-ready front page.
+A simple and dynamic **React-based web application** that helps students create **professional A4-sized front pages** for **lab reports** or **assignments**. Users can upload university logos, enter academic details, add multiple team members (for lab reports), preview the formatted page, and **download or print it instantly**.
+
+🔗 **Live Demo:** [Front Page Generator](https://tranquil-melba-c324c7.netlify.app/)
 
 ---
 
 ## 🚀 Features
 
-- ✅ Switch between **Lab Report** and **Assignment** front page mode
-- ✅ Input fields for:
-  - University logo
-  - University name and address
-  - Course title and code
-  - Submission details (teacher name, designation, department)
-  - Student details (name, ID, batch, department)
-  - Submission date
-  - Lab number (for Lab Reports)
-  - Multiple team members (for Lab Reports)
-- ✅ Live preview of the formatted front page
-- ✅ Download as **A4-sized PDF**
-- ✅ Clean and responsive design
+✅ **Switch Modes** – Choose between **Lab Report** and **Assignment** front page  
+✅ **Custom Input Fields**:  
+- University logo (image upload)  
+- University name & address  
+- Course title and course code  
+- Lab Report number (for lab reports)  
+- Assignment title (for assignments)  
+- Teacher’s name, designation & department  
+- Student details (name, ID, batch, department)  
+- Submission date  
+- Multiple team members (for lab reports)  
+
+✅ **Live Preview** – See the formatted front page instantly  
+✅ **Download as PDF** – Export the front page as an **A4 PDF**  
+✅ **Print Support** – Print directly in **A4 print-friendly format**  
+✅ **Responsive Design** – Works well on desktop and mobile  
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **React.js**
-- **CSS3** (Custom styling)
-- [**jsPDF**](https://www.npmjs.com/package/jspdf)
-- [**html2canvas**](https://www.npmjs.com/package/html2canvas)
+- **React.js** – UI & component handling  
+- **CSS3** – Custom styling  
+- **html2canvas** – Convert HTML to image  
+- **jsPDF** – Generate and download PDFs  
 
 ---
 
-## 📦 Installation
+## 📦 Installation & Setup
 
-```bash
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ishuuupishu/Front_Page/.git
+   cd lab-frontpage-generator
 
-cd lab-frontpage-generator
-npm install
-npm start
+
+
